@@ -1,1 +1,1 @@
-# TryHackMe---FoolsMate-Write-up
+# TryHackMe-FoolsMate-Write-up
