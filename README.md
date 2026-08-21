@@ -40,6 +40,8 @@ The challenge provides a web-based chess game called **Endgame Trainer**. The ga
 ## 3. Vulnerability Analysis
 The security check preventing the checkmate move only runs on the **client side** inside the web browser using JavaScript. 
 
+<img width="546" height="219" alt="image" src="https://github.com/user-attachments/assets/df09c690-273e-4a5b-9227-fe5163c06a45" />
+
 Because the backend server does not verify or enforce these game restrictions independently, the rule can be bypassed. There are two primary ways to exploit this flaw:
 - Sending a direct HTTP `POST` request with the winning coordinates via terminal using `curl`.
 - Intercepting and modifying the live browser traffic using **Burp Suite**.
