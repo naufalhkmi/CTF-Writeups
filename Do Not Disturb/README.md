@@ -6,14 +6,17 @@
 - **Category:** Web Exploitation & Boot2Root
 - **Tools Used:** Kali Linux, BurpSuite, Nmap, feroxbuster, netcat, wordlist
 
-## 1. Challenge Overview
+## Challenge Overview
 The scenario places us in a test against Byte Lotus, a resort booking system running on an insecure Linux server. The web app has bad input filters and leaves internal tools open.
 
 The main objective is to bypass the login page from the outside, get access to a standard user account to read the user flag, and then use system misconfigurations to read the final root flag.
 
 <img width="602" height="495" alt="image" src="https://github.com/user-attachments/assets/c1ab8c9c-a60a-4362-bbe4-07e51df78f3b" />
 
-## 2. Recon
+## Recon
+<details>
+<summary>Click here</summary>
+
 In this step, we scan the target machine to find open ports and discover what services are running. We use Nmap to gather information about the system and check the exact software versions.
 
 Here is what our command options do:
@@ -56,8 +59,11 @@ I try to edit the url page ( just incase it possible) but the system block it.
 
 <img width="825" height="507" alt="image" src="https://github.com/user-attachments/assets/e8eb1ddf-150d-486f-b902-1b8c2d4b7f23" />
 
+</details>
 
-## 2. Initial Access & Exploitation (Gaining the First Shell)
+## Initial Access & Exploitation (Gaining the First Shell)
+<details>
+<summary>Click here</summary>
 
 Now that we know the website runs on Node.js and has a login page, we need to find a way to log in without knowing the password. Node.js apps often use MongoDB (a NoSQL database), so we can try a NoSQL Injection attack. 
 
@@ -94,9 +100,14 @@ Click Preview, the server executes our code and connects back to our open Netcat
 
 <img width="647" height="232" alt="image" src="https://github.com/user-attachments/assets/32f09d96-4edc-480d-aff8-eca4d5af27c9" />
 
+</details>
+
 ---
 
 ## Gaining Root Access
+
+<details>
+<summary>Click here</summary>
 
 After retrieve the user flag, we need to find internal misconfigurations to gain administrative access. We run LinPEAS to scan the system for hidden vulnerabilities:
 
@@ -153,6 +164,8 @@ Inside the debugfs: prompt, we open the protected root flag file or just simply
 ```bash
 cat /root/root.txt
 ```
+
+</details>
 
 
 
