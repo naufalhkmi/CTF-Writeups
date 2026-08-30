@@ -15,10 +15,12 @@ The main objective is to discover how to break in from the outside, retrieve the
 
 ---
 
-<details>
-<summary>Click here</summary>
+
 
 ## 2. Reconnaissance & Initial Scan
+
+<details>
+<summary>Click here</summary>
 
 #### 1. Opened the terminal to scan the target IP address using **Nmap** to discover all accessible network ports and running services.
    
