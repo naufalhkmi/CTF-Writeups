@@ -21,6 +21,10 @@ The challenge provides a web-based chess game called **Endgame Trainer**. The ga
 ---
 
 ## 2. Reconnaissance & Initial Attempt
+
+<details>
+<summary>Click here</summary>
+
 1. Opened Kali Linux and ensured the OpenVPN connection was active.
 2. Navigated to `http://<TARGET_IP>` in the web browser.
    
@@ -34,10 +38,14 @@ The challenge provides a web-based chess game called **Endgame Trainer**. The ga
 
     <img width="416" height="194" alt="image" src="https://github.com/user-attachments/assets/d96e118c-54c2-4732-9d84-2d078d07952c" />
 
+</details>
 
 ---
 
 ## 3. Vulnerability Analysis
+<details>
+<summary>Click here</summary>
+
 The security check preventing the checkmate move only runs on the **client side** inside the web browser using JavaScript. 
 
 <img width="546" height="219" alt="image" src="https://github.com/user-attachments/assets/df09c690-273e-4a5b-9227-fe5163c06a45" />
@@ -48,9 +56,14 @@ Because the backend server does not verify or enforce these game restrictions in
 
 This write-up demonstrates the **Burp Suite** method to inspect and manipulate the HTTP request.
 
+</details>
+
 ---
 
 ## 4. Exploitation via Burp Suite
+
+<details>
+<summary>Click here</summary>
 
 ### Step 1: Launch Burp Suite
 Opened Burp Suite in Kali Linux, kept the default settings by clicking **Next** followed by **Start Burp**, then navigated to the **Proxy** > **Intercept** tab and clicked **Open browser**.
@@ -90,9 +103,7 @@ The backend server accepted the move without client restrictions, completing the
 
   <img width="1044" height="764" alt="image" src="https://github.com/user-attachments/assets/9d7bf317-fbb4-47be-9579-28703842582e" />
 
+</details>
 
-## 5. Key Takeaways & Remediation
-- Client-Side Validation is Not Security: Input validation or business logic handled exclusively in the browser (HTML/JavaScript) can be altered or bypassed by an attacker.
 
-- Enforce Backend Validation: Critical application logic, move verification, and access controls must always be validated and processed directly on the server side.
 
