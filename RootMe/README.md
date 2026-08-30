@@ -19,6 +19,9 @@ Connect to TryHackMe network and deploy the machine. If you don't know how to do
 
 ## 2: Recon
 
+<details>
+<summary>Click here</summary>
+
 We start by gathering information on the target machine to discover what services and hidden entry points are available by typing :
 
 ```bash
@@ -43,7 +46,12 @@ The nmap scan result above will answer the first three questions:
 2. What version of Apache is running? 2.*.**
 3. What service is running on port 22? S**
 
+</details>
+
 ## 3: Find directories on the web server using the GoBuster tool.
+
+<details>
+<summary>Click here</summary>
 
 The main landing page is plain, so we use Gobuster to hunt for hidden directories.
 
@@ -66,7 +74,15 @@ The gobuster scan result above will answer the next question:
 
 4. What is the hidden directory? /p****/
 
+
+</details>
+
+
 ## 4. Reverse Shell
+
+<details>
+<summary>Click here</summary>
+
 
 Go to hidden directory that we found by using gobuster
 
@@ -133,7 +149,13 @@ and you found the user flag 😁
 
 5. What is user.txt? THM{y**_***_*_****l}
 
+</details>
+
 ## Privileges Escalation
+
+<details>
+<summary>Click here</summary>
+
 
 Final step is to find a security misconfiguration that lets us elevate our access to root
 
@@ -183,3 +205,6 @@ find / -type f -name root.txt
 ```
 
 and then you use ```cat``` to found the final flag 😁
+
+
+</details>
