@@ -9,17 +9,26 @@
 ## Challenge Overview
 This challenge walks through hacking into a beginner-friendly Linux server with an outdated website and poor security settings.
 
+---
+
+
 ## Recon
+
+<details>
+<summary>Click here</summary>
+
 We use nmap to find which ports are open:
 
 ```bash
 nmap -Pn -sC -sV -T4
 ```
 
+
 - -Pn : Skip ping scanning
 - -sC : Use default scripts
 - -sV : Detect service versions
 - -T4 : Faster scan
+
 
 
 <img width="813" height="570" alt="nmap-scan" src="https://github.com/user-attachments/assets/039ae296-4e8a-4c26-bfee-8127674a4287" />
@@ -35,9 +44,16 @@ We found the following ports:
 > 1. How many services are running under port 1000? *
 > 2. What is running on the higher port? s**
 
+</details>
+
+---
+
+
 
 ## Exploitation
-
+<details>
+<summary>Click here</summary>
+  
 Let's explore the open ports. We'll start with the FTP service (port 21).
 
 ### FTP
@@ -68,6 +84,9 @@ We have several clues here:
 1. Username: `mitch`
 2. He uses a weak password (we can crack this using a wordlist like rockyou.txt)
 3. He reuses the same password elsewhere
+
+
+
 
 
 Now, let's explore other open ports.
@@ -185,8 +204,15 @@ hashcat -m 20 "0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2" --show
 
 > 5. What's the password? s*****
 
+</details>
+
+---
+
 
 ## Login via SSH
+
+<details>
+<summary>Click here</summary>
 
 After obtaining the username and password, we can SSH in on the custom port 2222:
 
@@ -203,8 +229,15 @@ Now let's explore the system to answer some questions:
 > 6. What's the user flag? *******
 > 7. Is there any other user in the home directory? What's its name? ******
 
+</details>
+
+---
+
 
 ## Privilege Escalation
+
+<details>
+<summary>Click here</summary>
 
 Often we can get a root shell by abusing misconfigurations. Checking `sudo` rights is a good first step:
 
@@ -238,3 +271,6 @@ Finally, read the root flag:
 ```bash
 cat /root/root.txt
 ```
+
+
+</details>
