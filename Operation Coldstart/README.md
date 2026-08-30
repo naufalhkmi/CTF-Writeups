@@ -15,6 +15,9 @@ The main objective is to discover how to break in from the outside, retrieve the
 
 ---
 
+<details>
+<summary>Click here</summary>
+
 ## 2. Reconnaissance & Initial Scan
 
 #### 1. Opened the terminal to scan the target IP address using **Nmap** to discover all accessible network ports and running services.
@@ -33,6 +36,7 @@ nmap -Pn -sC -sV -T4 <TARGET_IP>
   - sV (Service Version Detection): Probes open ports to identify the exact software name and version number running instead of guessing based on port numbers.
 
   - T4 (Aggressive Timing): Speeds up the scan duration so it completes quickly across the top 1,000 common ports without causing network congestion.
+
 
 #### 2. Findings & Next Step
 The port scan returned three open TCP ports:
@@ -56,7 +60,12 @@ A secure remote administration shell on Ubuntu Linux.
 
 A web application titled "URL Preview - Volt Labs" running on Python's Gunicorn server.
 
+</details>
+
 ## 3. Initial Access via Anonymous FTP
+
+<details>
+<summary>Click here</summary>
 
 ### Why Investigate FTP First?
 When a file server allows anonymous logins, checking the exposed files is always the highest-priority step. Developers and system administrators frequently store source code archives, database dumps, or configuration backups in FTP directories. Analyzing this code allows us to understand the application logic and uncover hidden vulnerabilities much faster than testing the web interface blindly.
@@ -127,7 +136,13 @@ Returned to the local terminal and extracted the downloaded .tar.gz archive:
 
 > - app.py: The main Python source code file running the web application on Port 80. Inspecting this file provides direct visibility into backend routing, access control logic, and potential security vulnerabilities.
 
+</details>
+
+
 ## 4. Source Code Analysis & Vulnerability Identification
+
+<details>
+<summary>Click here</summary>
 
 ### Step 1: Inspecting the Backend Code
 Opened `app.py` in a text editor to analyze how the web application handles user requests and routes:
@@ -172,7 +187,12 @@ When the backend processes the request:
 
 **AND BOOM, WE GOT THE SSH CREDINTIALS !**
 
+</details>
+
 ## 5. Exploitation & Initial Foothold
+
+<details>
+<summary>Click here</summary>
 
 ### Step 1: Gaining Remote Access via SSH
 
@@ -188,8 +208,13 @@ and then you found user.txt file and read it.
 
 **USER FLAG WAS SUCCESSFULLY CAPTURED**
 
+</details>
+
 
 ## 6. Privilege Escalation: Tar Wildcard Injection
+
+<details>
+<summary>Click here</summary>
 
 ### Step 1: Checking Scheduled Background Tasks (Cron Jobs)
 Once we got in as the standard user, our goal was to become the admin (`root`) so we could read the final flag. 
@@ -258,5 +283,5 @@ Check that you are now root and grab the final flag:
 
 > Your terminal prompt will change to # and whoami will say root, meaning you have completely taken over the machine!
 
-
+</details>
 
