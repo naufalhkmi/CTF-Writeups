@@ -1,4 +1,4 @@
-# Operation Coldstart - TryHackMe Write-up
+# Do Not Disturb - TryHackMe Write-up
 
 - **Platform:** [TryHackMe](https://tryhackme.com/)
 - **Room:** Do Not Disturb
