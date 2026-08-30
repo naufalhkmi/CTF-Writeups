@@ -55,7 +55,7 @@ and then i found there is txt file name ```ForMitch.txt```. Lets open the file.
 
 We have several clues here :
 1. user name , mitch
-2.he use weak password ( we can crack this by using list on rockyou.txt)
+2. he use weak password ( we can crack this by using list on rockyou.txt)
 3. he use same password
 
 
