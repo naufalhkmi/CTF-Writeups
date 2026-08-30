@@ -5,159 +5,178 @@
 - **Difficulty:** Easy
 - **Category:** Web Exploitation & Boot2Root
 - **Tools Used:** Kali Linux
-  
+
 ## Challenge Overview
-This challenge, we hack into a beginner-friendly Linux server with an outdated website and poor security settings.
+This challenge walks through hacking into a beginner-friendly Linux server with an outdated website and poor security settings.
 
 ## Recon
-We use nmap to find what port is open
+We use nmap to find which ports are open:
 
 ```bash
 nmap -Pn -sC -sV -T4
 ```
+
 - -Pn : Skip ping scanning
-- -sC : use default scanning
-- -sV : tell version of the port that we found
-- -T4 : make the scanning more faster
-
-<img width="813" height="570" alt="image" src="https://github.com/user-attachments/assets/039ae296-4e8a-4c26-bfee-8127674a4287" />
+- -sC : Use default scripts
+- -sV : Detect service versions
+- -T4 : Faster scan
 
 
-we found port
+<img width="813" height="570" alt="nmap-scan" src="https://github.com/user-attachments/assets/039ae296-4e8a-4c26-bfee-8127674a4287" />
+
+
+We found the following ports:
+
 - 21/ftp
 - 80/http
 - 2222/ssh
 
+
 > 1. How many services are running under port 1000? *
 > 2. What is running on the higher port? s**
 
+
 ## Exploitation
 
-Letx explore the open port. I start with exploring the ftp port first (21)
+Let's explore the open ports. We'll start with the FTP service (port 21).
 
-**FTP**
+### FTP
 
 ```bash
 ftp <target ip address>
 ```
 
-<img width="1341" height="551" alt="image" src="https://github.com/user-attachments/assets/23d5806d-4c5a-437d-ad4b-e4e42d8442d3" />
 
-I found there is directory ```pub``` at ftp root so we 
-
-```bash
-cd  pub
-```
-
-and then i found there is txt file name ```ForMitch.txt```. Lets open the file.
-
-<img width="1336" height="45" alt="image" src="https://github.com/user-attachments/assets/d7e7788c-a1ce-490b-95dc-04d5311fbdd6" />
-
-We have several clues here :
-1. user name , mitch
-2. he use weak password ( we can crack this by using list on rockyou.txt)
-3. he use same password
+<img width="1341" height="551" alt="ftp-listing" src="https://github.com/user-attachments/assets/23d5806d-4c5a-437d-ad4b-e4e42d8442d3" />
 
 
-Now, lets we go explore other open port
-
-**HTTP**
-
-We found there is page robots.txt in http port. let see what in it 
-
-<img width="905" height="620" alt="image" src="https://github.com/user-attachments/assets/92ddcec0-51b0-4e4f-b950-6f70afa89db7" />
-
-We found several clues here
-1. there is user name mike
-2. there is page /openemr-5_0_1_3
-
-/openemr-5_0_1_3 seems interesting. lets look in it:
-
-<img width="837" height="228" alt="image" src="https://github.com/user-attachments/assets/7d4274cd-8436-47af-a4d9-6edd0ffd1f5b" />
-
-
-hmmmm, lets try gobuster to find any directories that we can access :
+I found a directory named `pub` at the FTP root, so we:
 
 ```bash
-gobuster dir -u http://target ip address/ -w /usr/share/wordlist/dirb/common.txt
+cd pub
 ```
 
-<img width="738" height="425" alt="image" src="https://github.com/user-attachments/assets/3ca04d5b-fb5c-45b6-9eff-e794a3521920" />
 
-wer found /simple directory.  let see what in it
-
-
-<img width="1916" height="882" alt="image" src="https://github.com/user-attachments/assets/5f53cb9c-c465-4f42-8f12-dffaffc55b92" />
+Inside there is a text file named `ForMitch.txt`. Let's open the file.
 
 
-we scroll down a little bit and wee found 
-
-<img width="341" height="121" alt="image" src="https://github.com/user-attachments/assets/2e72cc16-c9ef-4dd1-b84e-610b8b50661c" />
+<img width="1336" height="45" alt="formitch-txt" src="https://github.com/user-attachments/assets/d7e7788c-a1ce-490b-95dc-04d5311fbdd6" />
 
 
-Now that we know the software name and exact version (CMS Made Simple version 2.2.8), we can search for any known security vulnerabilities
+We have several clues here:
 
-Type
+1. Username: `mitch`
+2. He uses a weak password (we can crack this using a wordlist like rockyou.txt)
+3. He reuses the same password elsewhere
+
+
+Now, let's explore other open ports.
+
+### HTTP
+
+We found a `robots.txt` file on the HTTP service. Let's look at it:
+
+
+<img width="905" height="620" alt="robots-txt" src="https://github.com/user-attachments/assets/92ddcec0-51b0-4e4f-b950-6f70afa89db7" />
+
+
+We found several clues here:
+
+1. There is a username `mike`
+2. There is a page `/openemr-5_0_1_3`
+
+
+The `/openemr-5_0_1_3` entry seems interesting. Let's inspect it:
+
+
+<img width="837" height="228" alt="openemr-page" src="https://github.com/user-attachments/assets/7d4274cd-8436-47af-a4d9-6edd0ffd1f5b" />
+
+
+Next, let's run gobuster to discover directories:
+
+```bash
+gobuster dir -u http://<target ip address>/ -w /usr/share/wordlists/dirb/common.txt
+```
+
+
+<img width="738" height="425" alt="gobuster" src="https://github.com/user-attachments/assets/3ca04d5b-fb5c-45b6-9eff-e794a3521920" />
+
+
+We found the `/simple` directory. Let's see what's inside:
+
+
+<img width="1916" height="882" alt="cms-made-simple-index" src="https://github.com/user-attachments/assets/5f53cb9c-c465-4f42-8f12-dffaffc55b92" />
+
+
+Scrolling down a bit we found version information:
+
+
+<img width="341" height="121" alt="version-info" src="https://github.com/user-attachments/assets/2e72cc16-c9ef-4dd1-b84e-610b8b50661c" />
+
+
+Now that we know the software name and exact version (CMS Made Simple version 2.2.8), we can search for known vulnerabilities.
+
+Run:
+
 ```bash
 searchsploit "CMS Made Simple" 2.2.8
 ```
 
-and
+and:
 
 ```bash
 searchsploit -p 46635
 ```
 
--p does 2 things :
+The `-p` option does two things:
 
-1. **Shows detailed info:** It looks up that specific exploit ID and displays extra metadata, including its CVE, author, and online Exploit-DB link.
-
-2. **Copies the full file path:** It prints the exact, absolute path on your Kali system (and copies it to your clipboard if supported) so you know where the file is stored.
+1. Shows detailed info for the exploit ID (metadata, CVE, author, Exploit-DB link).
+2. Prints the absolute path to the exploit file on your Kali system.
 
 
 The search result points to an Unauthenticated SQL Injection (SQLi) exploit:
 
 - Vulnerability: CMS Made Simple < 2.2.10 - SQL Injection
-
 - CVE ID: CVE-2019-9053
-
 - Exploit Script: 46635.py
 
+
 > 3. What's the CVE you're using against the application? CVE-2019-9053
-> 4. To what kind of vulnerability is the application vulnerable? s***
+> 4. To what kind of vulnerability is the application vulnerable? SQL Injection
 
 
-After we found the CVE, let's copy the exploit file (46635.py) into our current folder using :
+After identifying the CVE, copy the exploit file into your current folder:
 
 ```bash
 searchsploit -m 46635
 ```
 
-Because the original script was written in Python 2, we can convert it to Python 3 using Kali's built-in 2to3 tool so it runs smoothly without syntax errors:
+Because the original script was written for Python 2, convert it to Python 3 using Kali's 2to3 tool so it runs without syntax errors:
 
 ```bash
 2to3 -w 46635.py
 ```
 
-Now, let's run the script
-
+Now, run the exploit:
 
 ```bash
 python3 46635.py -u http://<TARGET_IP>/simple/ --crack -w /usr/share/wordlists/rockyou.txt
 ```
 
 
-After run the script, the exploit extracts the following details from the database:
+After running the script, the exploit extracts details from the database:
 
-<img width="407" height="87" alt="image" src="https://github.com/user-attachments/assets/70bbd833-a3b6-4db2-98f0-be8c2f1e2536" />
 
-we found the hash password but the script doenst crack hash password, it's okay. we can use ```hashcat```.
+<img width="407" height="87" alt="extracted-data" src="https://github.com/user-attachments/assets/70bbd833-a3b6-4db2-98f0-be8c2f1e2536" />
+
+
+We obtained a hashed password, but the script doesn't crack it. We can crack it with `hashcat`.
 
 ```bash
 hashcat -m 20 -a 0 "0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2" /usr/share/wordlists/rockyou.txt
 ```
 
-once Hashcat finishes, we can view the cracked password:
+Once Hashcat finishes, show the cracked password:
 
 ```bash
 hashcat -m 20 "0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2" --show
@@ -167,52 +186,55 @@ hashcat -m 20 "0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2" --show
 > 5. What's the password? s*****
 
 
-# Login SSH 
+## Login via SSH
 
-After we found the username and the password, we know SSH is running on the custom port 2222. Let's log in with credentials that we found:
+After obtaining the username and password, we can SSH in on the custom port 2222:
 
-<img width="777" height="340" alt="image" src="https://github.com/user-attachments/assets/e2166f78-6a6e-4309-a8ad-9855799f382b" />
 
-now let explore a little bit to answer the question
+<img width="777" height="340" alt="ssh-login" src="https://github.com/user-attachments/assets/e2166f78-6a6e-4309-a8ad-9855799f382b" />
 
-<img width="711" height="123" alt="image" src="https://github.com/user-attachments/assets/8405f924-f59e-4e56-9e9e-5a9eba7ff8c4" />
+
+Now let's explore the system to answer some questions:
+
+
+<img width="711" height="123" alt="user-home" src="https://github.com/user-attachments/assets/8405f924-f59e-4e56-9e9e-5a9eba7ff8c4" />
+
 
 > 6. What's the user flag? *******
 > 7. Is there any other user in the home directory? What's its name? ******
 
 
-# Priviledge Escalation
+## Privilege Escalation
 
-Oftentimes we can get a root shell by abusing misconfigurations in the system. sudo is generally a good first candidate to check. We can see what rights a user has using the 
+Often we can get a root shell by abusing misconfigurations. Checking `sudo` rights is a good first step:
 
 ```bash
-sudo -l 
+sudo -l
 ```
 
-<img width="515" height="55" alt="image" src="https://github.com/user-attachments/assets/030d78f5-2452-4517-8ba5-5730fa30aee0" />
 
-This means mitch can execute vim as root without needing a password.
+<img width="515" height="55" alt="sudo-list" src="https://github.com/user-attachments/assets/030d78f5-2452-4517-8ba5-5730fa30aee0" />
 
-Vim is a text editor with many interesting features, one of which is spawning a shell. Running vim with sudo will allow us to then spawn a root shell!
 
-> 8. What can you leverage to spawn a privileged shell? ***
+This shows that `mitch` can execute `vim` as root without a password.
 
-Once inside, we can spawn a shell with the following command:
+Vim can spawn a shell, so running it with `sudo` allows spawning a root shell:
+
+> 8. What can you leverage to spawn a privileged shell? vim (sudo)
+
+
+Once inside vim as root, spawn a shell with:
 
 ```bash
 :!bash
 ```
 
-<img width="436" height="67" alt="image" src="https://github.com/user-attachments/assets/faece0e8-18f7-4979-bc56-edaa4ad0c84b" />
+
+<img width="436" height="67" alt="root-shell" src="https://github.com/user-attachments/assets/faece0e8-18f7-4979-bc56-edaa4ad0c84b" />
 
 
-And then we can read the final flag by
+Finally, read the root flag:
 
-``` bash
+```bash
 cat /root/root.txt
 ```
-
-
-
-
-
