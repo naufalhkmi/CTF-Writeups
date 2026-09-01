@@ -16,9 +16,10 @@ This challenge walks through hacking into a beginner-friendly Linux server with 
 
 <details>
 <summary>Click here</summary>
-
+<br>
 We use nmap to find which ports are open:
-
+<br>
+  
 ```bash
 nmap -Pn -sC -sV -T4
 ```
@@ -53,9 +54,10 @@ We found the following ports:
 ## Exploitation
 <details>
 <summary>Click here</summary>
-  
+ <br> 
 Let's explore the open ports. We'll start with the FTP service (port 21).
-
+<br>
+  
 ### FTP
 
 ```bash
@@ -92,6 +94,7 @@ We have several clues here:
 Now, let's explore other open ports.
 
 ### HTTP
+<br>
 
 We found a `robots.txt` file on the HTTP service. Let's look at it:
 
@@ -213,9 +216,10 @@ hashcat -m 20 "0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2" --show
 
 <details>
 <summary>Click here</summary>
-
+<br>
+  
 After obtaining the username and password, we can SSH in on the custom port 2222:
-
+<br>
 
 <img width="777" height="340" alt="ssh-login" src="https://github.com/user-attachments/assets/e2166f78-6a6e-4309-a8ad-9855799f382b" />
 
@@ -238,9 +242,10 @@ Now let's explore the system to answer some questions:
 
 <details>
 <summary>Click here</summary>
-
+<br>
 Often we can get a root shell by abusing misconfigurations. Checking `sudo` rights is a good first step:
-
+<br>
+  
 ```bash
 sudo -l
 ```
