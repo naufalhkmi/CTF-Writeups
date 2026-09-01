@@ -25,7 +25,7 @@ Cracking hashes challenges
 - cybersecurity tool used to recover or "crack" forgotten passwords from their scrambled forms (called hashes).
 - It supports over 300 different hashing algorithms
 - [hash mode](https://hashcat.net/wiki/doku.php?id=example_hashes)
-
+- [hash mode -github](https://github.com/unstable-deadlock/brashendeavours.gitbook.io/blob/master/pentesting-cheatsheets/hashcat-hash-modes.md)
 ## Identifying Hashing Algorithms
 
 - [Tunnelsup](https://www.tunnelsup.com/hash-analyzer/)
