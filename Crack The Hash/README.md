@@ -225,8 +225,9 @@ We found it is sha512crypt $6$, SHA512 (Unix) type
 Next, find the hash mode at [hash mode -github](https://github.com/unstable-deadlock/brashendeavours.gitbook.io/blob/master/pentesting-cheatsheets/hashcat-hash-modes.md)
 
 ```bash
-
+hashcat -m 1800 -a 0 '$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.' /usr/share/wordlists/rockyou.txt 
 ```
+
 
 
 ---
