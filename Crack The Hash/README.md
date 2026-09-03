@@ -143,6 +143,109 @@ and then view the cracked password :
 
 ---
 
+# LEVEL 2
+<details>
+<summary>Click here</summary>
+<br>
+
+1. F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85
+
+- we identify the hash by using [Tunnelsup](https://www.tunnelsup.com/hash-analyzer/) tool
+
+- Its	SHA2-256 type. now let use [100L5](https://10015.io/tools/) to decrypt
+
+<br>
+
+<img width="1222" height="232" alt="image" src="https://github.com/user-attachments/assets/e4541eba-e78f-4342-892f-219af780a9a6" />
+
+<br>
+
+Since the hash is too long. we need to use our terminal and start use hashcat command to solve this problem
+
+If using hashcat. we need to identify the hash first so that we can decide which hashcat mode that we can use.
+
+[hash mode -github](https://github.com/unstable-deadlock/brashendeavours.gitbook.io/blob/master/pentesting-cheatsheets/hashcat-hash-modes.md)
+
+I use command 
+
+```bash
+hashcat -m 1400 -a 0 'F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85' /usr/share/wordlists/rockyou.txt
+```
+
+<img width="742" height="100" alt="image" src="https://github.com/user-attachments/assets/f3e6787f-6841-443f-a92b-336fc150c6fc" />
+
+We found it.
+
+---
+
+2. 1DFECA0C002AE40B8619ECF94819CC1B
+
+- we identify the hash by using [Tunnelsup](https://www.tunnelsup.com/hash-analyzer/) tool
+ 
+- its MD5 / MD4 type. let use hashcat for this hash
+
+
+```bash
+hashcat -m 0 -a 0 '1DFECA0C002AE40B8619ECF94819CC1B' /usr/share/wordlists/rockyou.txt
+```
+
+This is for MD5 mode
+
+```bash
+hashcat -m 900 -a 0 '1DFECA0C002AE40B8619ECF94819CC1B' /usr/share/wordlists/rockyou.txt
+```
+
+This is for MD4 mode.
+
+
+But when i try these 2 hashmode, both status said is "exhausted". So i try identify again this hash password using other platform which is [hashes](https://hashes.com/en/tools/hash_identifier)
+
+It sais it is NTLM type. So hash cat mode for NTLM is ```1000```
+
+```bash
+hashcat -m 1000 -a 0 '1DFECA0C002AE40B8619ECF94819CC1B' /usr/share/wordlists/rockyou.txt
+```
+
+<img width="502" height="97" alt="image" src="https://github.com/user-attachments/assets/f9a37c8e-b402-466e-8540-fc532a5341db" />
+
+---
+
+
+3.  $6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.
+
+Salt: aReallyHardSalt
+
+
+<br>
+
+We identify the hash type using [hashes](https://hashes.com/en/tools/hash_identifier)
+
+We found it is sha512crypt $6$, SHA512 (Unix) type
+
+Next, find the hash mode at [hash mode -github](https://github.com/unstable-deadlock/brashendeavours.gitbook.io/blob/master/pentesting-cheatsheets/hashcat-hash-modes.md)
+
+```bash
+
+```
+
+
+---
+
+
+4. e5d8870e5bdd26602cab8dbe07a942c8669e56d6
+
+Salt :  tryhackme
+
+We identify the hash type using [hashes](https://hashes.com/en/tools/hash_identifier)
+
+
+
+
+
+
+
+
+
 
 
 
