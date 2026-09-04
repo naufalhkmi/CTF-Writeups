@@ -1,4 +1,4 @@
-# Reversing ELF - TryHackMe Write-up
+<img width="668" height="595" alt="image" src="https://github.com/user-attachments/assets/6dc5dc32-60b2-4bda-b508-d0c1584e6fb3" /># Reversing ELF - TryHackMe Write-up
 
 - **Platform:** [TryHackMe](https://tryhackme.com/)
 - **Room:** Reversing ELF
@@ -303,7 +303,37 @@ Arrange the character in order and that is your password (flag).
 <summary>Click here</summary>
 <br>
 
->   
+>   Analyze the binary to get the flag
+
+<img width="332" height="140" alt="image" src="https://github.com/user-attachments/assets/05128d16-85aa-4139-a9e9-7df4f7bce108" />
+
+<br>
+
+let use ghidra to analyze the code.
+
+
+let start with the ```main``` fucntion to see how this program start.
+
+<img width="1917" height="598" alt="image" src="https://github.com/user-attachments/assets/6fadbd4d-1c48-442c-9959-440e67dfc319" />
+
+
+look at the right side (decompiler panel), and read the code. we can see that
+
+<img width="670" height="600" alt="image" src="https://github.com/user-attachments/assets/8b6c419e-e622-4553-a605-6c6654951faa" />
+
+
+if we input 0x7a69 , it will call the ```giveFlag()``` fucntion. let us try
+
+<img width="255" height="152" alt="image" src="https://github.com/user-attachments/assets/5cbfdedd-5ac1-44d7-b1cb-f5e6f27427a9" />
+
+seems like i forgot to change the hex decimal to decimal number. since the menu only read the input in interger.
+
+so 0x7a69 = 31337
+
+
+<img width="368" height="170" alt="image" src="https://github.com/user-attachments/assets/1b1f47b0-c84d-46d4-8896-bff633c7a31c" />
+
+
 
 
 </details>
@@ -317,9 +347,37 @@ Arrange the character in order and that is your password (flag).
 <summary>Click here</summary>
 <br>
 
-  
+> Analyze the binary and obtain the flag 
 
 
+<img width="343" height="51" alt="image" src="https://github.com/user-attachments/assets/93bfc8f6-4ea0-4e26-8461-5fa3bc2e9d4c" />
+
+
+lets open ghidra and analyze the code.
+
+<img width="1897" height="652" alt="image" src="https://github.com/user-attachments/assets/43ea9873-065c-4dbe-903b-516772b0a297" />
+
+and lets look at the decompiler panel
+
+<img width="668" height="595" alt="image" src="https://github.com/user-attachments/assets/98909af0-4838-4396-9478-d6d98765c48c" />
+
+we can see that, if the input is ```-0x35010ff3 ``` it will call function giveFlag(). 
+
+but before the program run the comparison, the input will pass at ```atoi()``` function.
+
+atoi stand for 
+
+- a stands for ASCII (text characters / string).
+- to stands for to (convert to).
+- i stands for integer (a whole number).
+- Combined: a-to-i $\rightarrow$ Convert ASCII string to Integer.
+
+therefore, if i change ```-0x35010ff3``` into integer (decimal) which is ```-889262067```
+
+<img width="547" height="65" alt="image" src="https://github.com/user-attachments/assets/d9ec1bf6-90d2-4224-a81c-f4ccf003d16b" />
+
+
+it will show the flag.
 </details>
 
 ---
