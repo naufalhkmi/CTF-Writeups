@@ -1,4 +1,4 @@
-<img width="668" height="595" alt="image" src="https://github.com/user-attachments/assets/6dc5dc32-60b2-4bda-b508-d0c1584e6fb3" /># Reversing ELF - TryHackMe Write-up
+# Reversing ELF - TryHackMe Write-up
 
 - **Platform:** [TryHackMe](https://tryhackme.com/)
 - **Room:** Reversing ELF
