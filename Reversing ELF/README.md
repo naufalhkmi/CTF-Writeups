@@ -260,7 +260,36 @@ we found the input !
 <summary>Click here</summary>
 <br>
 
-  
+> Analyze the binary for the easy password
+
+<img width="323" height="60" alt="image" src="https://github.com/user-attachments/assets/669c8ddc-8355-411f-a0b2-06986188e458" />
+
+
+in this challenge. we cannot use method ```strcmp``` because the file uses a custom check. therefore let analyze this file use **ghidra**
+
+import the file and analyze it
+
+after you import, look at the left panel ( symbol tree ) and then find ```main``` fucntion. Every C program starts here. we need to check how input enters the program
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e8e06f43-339f-404a-b676-2d03a4b3d610" />
+
+at the right side is decompiler panel. it translate into readable code. 
+
+we can seee there is fucntion ```compare_pwd```. double click it. it will redirect to that function.
+
+<img width="677" height="377" alt="image" src="https://github.com/user-attachments/assets/04197042-8d2d-4b46-a665-f28a5774735b" />
+
+
+now, the code says if ```iVar1 = my_secure_test``` , the program will show ```password OK```. otherwise it will print ```password not OK```. Let double click function ```my secure test```
+
+<img width="575" height="555" alt="image" src="https://github.com/user-attachments/assets/4ad81d3a-1240-4d53-b531-70a9992211c1" />
+
+Inside the decompiler window, you will see a series of simple if checks comparing your input array against specific characters or numbers
+
+Arrange the character in order and that is your password (flag).
+
+<img width="330" height="36" alt="image" src="https://github.com/user-attachments/assets/2d97bfd0-b035-4a17-946d-35c738e1918d" />
+
 
 
 </details>
@@ -274,7 +303,7 @@ we found the input !
 <summary>Click here</summary>
 <br>
 
-  
+>   
 
 
 </details>
