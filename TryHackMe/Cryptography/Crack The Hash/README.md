@@ -1,4 +1,4 @@
-<img width="1067" height="638" alt="image" src="https://github.com/user-attachments/assets/58ea2650-fd0c-4144-87cc-44620e4a12dc" /># Crack The Hash - TryHackMe Write-up
+# Crack The Hash - TryHackMe Write-up
 
 - **Platform:** [TryHackMe](https://tryhackme.com/)
 - **Room:** Crack The Hash
