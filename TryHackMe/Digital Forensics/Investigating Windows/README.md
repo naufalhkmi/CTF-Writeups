@@ -1,9 +1,9 @@
-# Simple CTF - TryHackMe Write-up
+# Investigating Windows - TryHackMe Write-up
 
 - **Platform:** [TryHackMe](https://tryhackme.com/)
-- **Room:** 
-- **Difficulty:** 
-- **Category:** 
+- **Room:** Investigating Windows
+- **Difficulty:** Easy
+- **Category:** Digital Forensics
 - **Tools Used:** 
 
 ## Challenge Overview
