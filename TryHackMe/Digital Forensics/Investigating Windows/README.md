@@ -419,8 +419,46 @@ and read the local port number listed inside.
 **Answer: 1337**
 
 
+---
+
+**DNS Poisoning**
+
+Normally, when you type a website name like google.com into a browser, your computer asks an internet directory (called a DNS server) for the real IP address.
 
 
+However, before the computer asks the internet, it always checks its own local address book first—the hosts file located at:
+
+```bash
+C:\Windows\System32\drivers\etc\hosts
+```
+
+If someone writes a website name inside this file and points it to a different IP address, your computer will blindly trust it and go to the wrong destination.
+
+this trick is called **DNS poisoning** or **hosts file hijacking**
 
 
+To check which site was targeted, open File Explorer and follow the path to
+
+```bash
+C:\Windows\System32\drivers\etc
+```
+
+> A clean Windows hosts file usually contains only comments (lines starting with #) or default local entries like 127.0.0.1 localhost.
+
+
+You will see fake entry, popular, well-known search engine domain is manually mapped to the suspicious IP address 76.32.97.132 (the attacker's C2 server).
+
+**Check for DNS poisoning, what site was targeted?**
+
+**Answer: google.com**
 </details>
+
+
+
+
+
+
+
+
+
+
