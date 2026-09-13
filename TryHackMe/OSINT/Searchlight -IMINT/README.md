@@ -65,20 +65,18 @@ The flag format is: ```sl{flag}``` . This means that every answer needs to be su
 
 this task, you was given a photo of public subway (tube). look for the clues in the picture
 
-[clue picture]
+<img width="1800" height="1440" alt="image" src="https://github.com/user-attachments/assets/fecfd42f-946d-45e8-96d7-45651ac9841a" />
+
 
 
 we found 
 
 - the name of the station : circus street underground.
 
-Go to the google and search the name.
+Go to the google and search the name and Go to wikipedia to read more details
 
-[show result google search]
 
-Go to wikipedia to read more details
-
-[show details wikipedia]
+<img width="901" height="798" alt="image" src="https://github.com/user-attachments/assets/b83ac3f5-460c-4c5f-a208-dec1fa3c39f9" />
 
 
 
@@ -110,7 +108,27 @@ we found :
   
 Look closely at the image for any signs, text, or billboards. In this photo, the most important clue is a billboard that says "YVR Connects".
 
-[show photo ybr connects]
+
+<img width="478" height="267" alt="image" src="https://github.com/user-attachments/assets/95cae119-7095-48af-85b5-569cfc1bf49b" />
+
+
+we just one google search we have found so many information about our target.
+
+<img width="1226" height="756" alt="image" src="https://github.com/user-attachments/assets/9d55a1fe-caf6-45c1-89de-b45b942ca40c" />
+
+
+
+**1. Which building is this photo taken in?**
+
+> **Answer: sl{vancouver international airport}**
+
+**2. Which country is this building located in?**
+
+>  **Answer: sl{canada}**
+
+**3. Which city is this building located in?**
+
+> **Answer: sl{richmond}**
 
 
 
@@ -124,7 +142,65 @@ Look closely at the image for any signs, text, or billboards. In this photo, the
 <summary>Click here</summary>
 <br>
   
+For this task, we need to locate the coffee shop based on the image given to us.
 
+So, if we look closely on the image, we notice there is a building name "The Edinburgh Woolen Mill"
+
+Let search on google.
+
+<img width="891" height="487" alt="image" src="https://github.com/user-attachments/assets/2339b22d-402c-4992-a98c-aec19fa88bb1" />
+
+
+I found out that this shop was located at "Blairgowrie". Blairgowrie is a city name located at scotland.
+
+
+**1. Which city is this coffee shop located in?**
+
+> **sl{blairgowrie}**
+
+
+Im trying to find the coffee shop name by using google maps. since the coffee shop is located infront of the The Edinburgh Woolen Mill.
+
+<img width="1532" height="650" alt="image" src="https://github.com/user-attachments/assets/d9196d2e-2b47-4d76-b683-1fe8db506c84" />
+
+and then try inspect a little bit more closer.
+
+<img width="700" height="468" alt="image" src="https://github.com/user-attachments/assets/b610ab48-4523-4878-b688-f12ce2f54ba6" />
+
+<br>
+
+nice we found it. if you look closely on the coffee shop board, you can found the street name.
+
+
+
+**2. Which street is this coffee shop located in?**
+
+> **Answer: sl{allan street}**
+
+
+<br>
+
+next, let search the coffee shop name on the google to find out more details.
+
+<img width="922" height="502" alt="image" src="https://github.com/user-attachments/assets/00fa8a42-ca1f-4f30-b77b-363c248cd0d5" />
+
+
+**3. What is their phone number?**
+
+> **Answer: sl{+447878 839128}**
+
+**4. What is their email address?**
+
+**Answer: sl{theweecoffeeshop@aol.com}**
+
+To find the owner surname, simply search on the google.
+
+<img width="905" height="332" alt="image" src="https://github.com/user-attachments/assets/6d66519e-8245-4ffa-b93d-daef7d4a0328" />
+
+
+**5. What is the surname of the owners?**
+
+**Answer: sl{cochrane}**
 </details>
 
 ---
