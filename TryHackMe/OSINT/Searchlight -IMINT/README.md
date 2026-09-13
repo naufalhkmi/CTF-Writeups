@@ -191,7 +191,7 @@ next, let search the coffee shop name on the google to find out more details.
 
 **4. What is their email address?**
 
-**Answer: sl{theweecoffeeshop@aol.com}**
+> **Answer: sl{theweecoffeeshop@aol.com}**
 
 To find the owner surname, simply search on the google.
 
@@ -200,7 +200,7 @@ To find the owner surname, simply search on the google.
 
 **5. What is the surname of the owners?**
 
-**Answer: sl{cochrane}**
+> **Answer: sl{cochrane}**
 </details>
 
 ---
@@ -211,8 +211,58 @@ To find the owner surname, simply search on the google.
 <details>
 <summary>Click here</summary>
 <br>
-  
 
+Before we start find the flag, let us understand first what is reverse Reverse Image.
+
+> 1. What is Reverse Image Search?
+> Instead of typing words into a search engine, you give the search engine a picture. It scans the web to find where else that exact image (or a very similar one) appears.
+
+> 2. Why Google Alone Isn’t Enough
+> - **The Problem:** Many people only use Google. While Google is great for popular photos, it often misses older, regional, or niche images.
+> - **The Solution:** Use multiple search engines because each one indexes different parts of the internet.
+
+> 3. The Main Tools to Use
+> - **Google Lens / Google Images:** Good for general web searches, finding products, and pulling text from images.
+> - **Yandex:** A Russian search engine that is often much better at recognizing faces, tracking down the origins of obscure photos, and finding visually similar images globally.
+> - **Bing:** Microsoft’s search engine, which excels at finding exact copies and recognizing objects or text within photos.
+> - **TinEye:** Great for finding the oldest version of an image to see when and where it first appeared online (helpful for spotting fake news or recycled photos).
+
+
+> 4. Tips for Investigators
+> - **Crop the Image:** If an image is busy, crop it down to just a face, a unique landmark, or a sign to get better results.
+> - **Check the Dates:** Look at the publication dates of the search results. If a photo is claimed to be from today, but search results show it online from five years ago, you know the claim is false.
+> - **Look for Higher Quality:** Use reverse image search to find the original, unedited, high-resolution version of a picture to spot details that are hidden in blurry screenshots.
+
+
+No we understand the concept of reverse image now lets go find find the flag.
+
+First, lets find the information about the image by directly searching them into search engine.
+
+
+<img width="1018" height="685" alt="image" src="https://github.com/user-attachments/assets/b3d913d2-46b7-4623-9283-4b7ad274727f" />
+
+
+
+<img width="943" height="885" alt="image" src="https://github.com/user-attachments/assets/c3a6dc66-7500-404d-967a-1ac29410f4d1" />
+
+
+we found the name of the restaurant !
+
+**1. Which restaurant was this picture taken at?**
+
+> **Answer: sl{katz's deli}**
+
+and then Im trying to fiddling around the website to find the name of the Bon Appétit editor that worked 24 hours at this restaurant 
+
+and then i found 
+
+<img width="1280" height="437" alt="image" src="https://github.com/user-attachments/assets/46989610-a2ed-40fe-a7d7-7d4de1c84d91" />
+
+
+
+**2. What is the name of the Bon Appétit editor that worked 24 hours at this restaurant?**
+
+> **Answer: sl{andrew knowlton}**
 </details>
 
 ---
@@ -223,7 +273,14 @@ To find the owner surname, simply search on the google.
 <details>
 <summary>Click here</summary>
 <br>
-  
+
+For this task, i use the same method which is i just search the picture using search engine.
+
+<img width="1325" height="741" alt="image" src="https://github.com/user-attachments/assets/4117ff90-e69e-4e03-83c7-7932994d7136" />
+
+**1. What is the name of this statue?**
+
+> **Answer: Who took this image?**
 
 </details>
 
@@ -234,7 +291,47 @@ To find the owner surname, simply search on the google.
 <details>
 <summary>Click here</summary>
 <br>
-  
+
+i send the picture directly into search engine and then i found the titled of the statue and the location of the statue
+
+<img width="957" height="733" alt="image" src="https://github.com/user-attachments/assets/96e974e3-0b60-48a2-bf9b-3bdf627eb7b2" />
+
+
+**2. where is this statue located?**
+
+> **Answer: sl{alexandria, virginia}**
+
+
+But the titled not the name of the character. So i search "justice Delayed, Justice Denied statue character name".
+
+
+And then i browsing through the site to find more details, then i found out:
+
+<img width="1435" height="155" alt="image" src="https://github.com/user-attachments/assets/a041362a-80e2-4fdc-8a43-566c86df151e" />
+
+but this is not the name of the character either. so i search "other name for blind justice" and then i found the exact name.
+
+**1. What is the name of the character that the statue depicts?**
+
+> **Answer: sl{lady justice}**
+
+
+To find the name of the building opposite from this statue , we can simply use google maps.
+
+I search the statue name and where it is located.
+
+<img width="1651" height="771" alt="image" src="https://github.com/user-attachments/assets/7ec6083d-076e-482b-800d-b712ef8414ad" />
+
+if you look closedly the building, we found the building name which is "The Westin Alexandria."
+
+but this is not the full name.
+
+So i just simply search again on the google maps and it show the full name of the building.
+
+
+**3. What is the name of the building opposite from this statue?**
+
+> **Answer: sl{the westin alexandria old town}**
 
 </details>
 
@@ -245,8 +342,35 @@ To find the owner surname, simply search on the google.
 <details>
 <summary>Click here</summary>
 <br>
-  
 
+For last task, we were given a video with some details in it.
+
+in the video we know the place located at singapore because we can see marina bay building.
+
+and if we look carefully in the video. we know that this hotel is located near this building
+
+<img width="1346" height="852" alt="image" src="https://github.com/user-attachments/assets/c0d6cd20-8e1a-41b2-87ba-f4a297c8297a" />
+
+
+in the video also there is place name "Riverpoint". so let search this place on gooogle maps.
+
+
+<img width="1172" height="792" alt="image" src="https://github.com/user-attachments/assets/ee0445df-7ffb-4a47-8619-fc6667d169db" />
+
+
+the red mark is the building that we mark earlier from the video !. now lets go to that building so that we can find the hotel.
+
+
+<img width="1218" height="860" alt="image" src="https://github.com/user-attachments/assets/2688453c-4881-4c41-916c-8f1698d8105c" />
+
+
+the hotel name is "Novotel" and located at "Clarke Quay" but this is not the fullname.
+
+So we can just simple search "Novotel Clarke Quay" on google maps to know the full names
+
+**1. What is the name of the hotel that my friend stayed in a few years ago?**
+
+**Answer: sl{novotel singapore clarke quay}**
 </details>
 
 ---
