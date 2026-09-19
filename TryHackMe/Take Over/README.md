@@ -60,7 +60,7 @@ However, there doesn’t seem to be any DNS service running on the machine. Sinc
 <summary>Click here</summary>
  <br> 
 
-To trick the server into showing us hidden websites, we used a tool called ```ffuf``
+To trick the server into showing us hidden websites, we used a tool called ```ffuf```
 
 ```bash
 ffuf -u http://futurevera.thm/ -H "Host: FUZZ.futurevera.thm" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
