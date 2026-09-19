@@ -74,8 +74,8 @@ So instead use that syntax, we should try
 ffuf -u https://futurevera.thm/ -H "Host: FUZZ.futurevera.thm" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -mc all -fs 4605
 ```
 
-> - Tells ffuf to show every response code so nothing gets hidden automatically.
-> - Hides any result matching the fake error page size
+> - **-mc :** Tells ffuf to show every response code so nothing gets hidden automatically.
+> - **-fs 4605:** Hides any result matching the fake error page size
 
 <img width="1287" height="450" alt="image" src="https://github.com/user-attachments/assets/9f57698e-3152-40d8-9dc0-d58cd1d54a3b" />
 
