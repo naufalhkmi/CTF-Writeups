@@ -8,17 +8,21 @@
 
 ## Challenge Overview
 
+The W1seGuy challenge is all about uncovering a hidden flag by figuring out a secret 5-letter password. The server hands you a scrambled text message that was locked using XOR math and a key that repeats over and over. Because every flag starts with predictable letters like THM{, you can reverse the math to crack the hidden key in seconds, feed it back to the server, and unlock your prize.
 
 ---
 
 
-## Recon
+## Break Down the Code
 
 <details>
 <summary>Click here</summary>
 <br>
 
-  
+After you download the task file, let us see first what is in the machine ip address. it state " server is listening on port 1337 via TCP " so
+
+bash ```
+nc <machine ip address> 1337 ```
 
 
 </details>
