@@ -21,8 +21,17 @@ The W1seGuy challenge is all about uncovering a hidden flag by figuring out a se
 
 After you download the task file, let us see first what is in the machine ip address. it state " server is listening on port 1337 via TCP " so
 
-bash ```
-nc <machine ip address> 1337 ```
+ ```bash
+nc <machine ip address> 1337
+```
+
+then the output show :
+
+<br>
+<img width="950" height="55" alt="image" src="https://github.com/user-attachments/assets/b200dcfb-7b84-45d3-987d-c50f82e20692" />
+
+<br>
+
 
 
 </details>
