@@ -40,7 +40,7 @@ then the output show :
 
 
 
-## Exploitation
+## ...
 <details>
 <summary>Click here</summary>
  <br> 
@@ -53,7 +53,7 @@ then the output show :
 ---
 
 
-## Login via SSH
+## ...
 
 <details>
 <summary>Click here</summary>
@@ -65,7 +65,7 @@ then the output show :
 ---
 
 
-## Privilege Escalation
+##...
 
 <details>
 <summary>Click here</summary>
