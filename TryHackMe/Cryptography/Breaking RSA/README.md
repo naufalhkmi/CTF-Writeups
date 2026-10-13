@@ -88,7 +88,7 @@ look inside log.txt,
 
 <img width="823" height="187" alt="image" src="https://github.com/user-attachments/assets/d314dff8-417a-427c-bb86-88ee9f56c3e5" />
 
-it said that , the ssy keys that they generate use weak RSA. because the p and q value is close. well, this information we already got earlier.
+it said that , the ssh keys that they generate use weak RSA. because the p and q value is close.
 so we can use Fermat's Factorization method.
 
 
