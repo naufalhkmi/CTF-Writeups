@@ -249,10 +249,9 @@ print("[+] id_rsa saved.")
 ```
 
 <img width="410" height="152" alt="image" src="https://github.com/user-attachments/assets/80f604a9-30b2-4ded-856b-dc6a71e5ba2f" />
+ 
 
-if you remmeber, there is 2 open port which is 80 and 22(ssh). 
-
-we have to add the correct permissions to the key to log on the machine as root. In the home directory of root, we find the flag.
+lastly, we have to add the correct permissions to the key to log on the machine as root. In the home directory of root, we find the flag.
 
 <img width="987" height="617" alt="image" src="https://github.com/user-attachments/assets/16e6805f-1675-4704-a976-60de3c7c5f65" />
 
