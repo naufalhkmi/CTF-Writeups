@@ -1,4 +1,4 @@
-<img width="823" height="187" alt="image" src="https://github.com/user-attachments/assets/46ce93e8-91d3-4bd3-b313-1f72399b678c" /># Breaking RSA - TryHackMe Write-up
+# Breaking RSA - TryHackMe Write-up
 
 - **Platform:** [TryHackMe](https://tryhackme.com/)
 - **Room:** Breaking RSA
